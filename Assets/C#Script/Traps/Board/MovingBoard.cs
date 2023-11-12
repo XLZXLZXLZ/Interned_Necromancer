@@ -31,7 +31,6 @@ public class MovingBoard : Board
             if ((transform.position - currentTarget).sqrMagnitude <= 0.01f)
             {
                 isMoving = false;
-                gear.isOn = false;
             }
         }
     }
@@ -41,7 +40,6 @@ public class MovingBoard : Board
         base.SwitchOn();
 
         currentTarget = destination;
-        gear.isOn = true;
         isMoving = true;
     }
 
@@ -50,7 +48,6 @@ public class MovingBoard : Board
         base.SwitchOff();
 
         currentTarget = origin;
-        gear.isOn = true;
         isMoving = true;
     }
 

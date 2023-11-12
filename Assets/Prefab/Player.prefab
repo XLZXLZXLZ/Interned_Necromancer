@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3353805213809896291}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.316, y: 0.781, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 650500103343360977}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2695884673858336238
 MonoBehaviour:
@@ -76,7 +76,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6334895521294605707}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -84,6 +83,7 @@ Transform:
   m_Children:
   - {fileID: 650500103343360977}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6156294086591022585
 Rigidbody2D:
@@ -102,12 +102,6 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1.8
   m_Material: {fileID: 6200000, guid: faa5f12ad2b41fd40909989f18d4ba41, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -122,25 +116,6 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: faa5f12ad2b41fd40909989f18d4ba41, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -185,6 +160,7 @@ MonoBehaviour:
   accelerateMult: 8
   airJumpChance: 1
   flyAbility: 0
+  fallDeathVelocity: 25
 --- !u!114 &5117069203008731389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,8 +221,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathReason: 0
-  soul: {fileID: 6207417467140412654, guid: 884a69868a4e8c443bae9e192e71b088, type: 3}
-  revivePos: {x: 0, y: 0}
+  soul:
+  - {fileID: 6207417467140412655, guid: 884a69868a4e8c443bae9e192e71b088, type: 3}
+  - {fileID: 6128617178822300774, guid: 0be606da2ec44cd49b75efd6d5b6ed6a, type: 3}
+  - {fileID: 8784800450706473475, guid: 4872109d31732234282d143ed83d472d, type: 3}
+  revivePos: {x: -2, y: 0}
 --- !u!1 &6433546942844745208
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +253,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6433546942844745208}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -282,6 +260,7 @@ Transform:
   m_Children:
   - {fileID: 1190319368948697379}
   m_Father: {fileID: 2532860323141892667}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6886471236724094821
 SpriteRenderer:
@@ -355,7 +334,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4297724710711628948
 MonoBehaviour:
   m_ObjectHideFlags: 0

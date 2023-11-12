@@ -18,7 +18,6 @@ public class RotatingBoard : Board
         if(alwaysWorking)
         {
             isRotating= true;
-            gear.isOn = true;
             currentRotation=0;
             rotationAngle = 999999999;
         }
@@ -32,7 +31,6 @@ public class RotatingBoard : Board
             {
                 angleToRotate = rotationAngle - currentRotation;
                 isRotating = false;
-                gear.isOn = false;
             }
             transform.RotateAround(transform.TransformPoint(rotationAxis), transform.forward, angleToRotate);
             currentRotation += angleToRotate;
@@ -45,7 +43,6 @@ public class RotatingBoard : Board
 
         currentRotation = 0f;
         isRotating = true;
-        gear.isOn = true;
     }
 
     protected override void SwitchOff()
@@ -54,7 +51,6 @@ public class RotatingBoard : Board
 
         currentRotation = 0f;
         isRotating = false;
-        gear.isOn = false;
     }
 
     private void OnDrawGizmos()

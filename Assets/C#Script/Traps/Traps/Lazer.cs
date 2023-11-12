@@ -91,7 +91,7 @@ public class Lazer : MonoBehaviour
         if (!isOn)
             return;
         RaycastHit2D target;
-        var hits = Physics2D.RaycastAll(startPosition, dir , maxDistance, LayerMask.GetMask("Ground", "Monster"));
+        var hits = Physics2D.RaycastAll(startPosition, dir , maxDistance, LayerMask.GetMask("Ground", "Monster","Gear"));
         Array.Sort(hits, (x, y) => x.distance.CompareTo(y.distance));
 
         int temp = isFleshEye ? 1 : 0;
