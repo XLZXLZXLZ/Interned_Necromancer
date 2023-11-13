@@ -33,8 +33,13 @@ public class UIManager : Singleton<UIManager>
     
     public T ShowPanel<T>() where T : PanelBase
     {
-        if (!panelDic.ContainsKey(typeof(T)) 
-            || panelOnShowing.ContainsKey(typeof(T))) return null;
+        if (!panelDic.ContainsKey(typeof(T))) return null;
+
+        if (panelOnShowing.ContainsKey(typeof(T)))
+        {
+            panelOnShowing[typeof(T)].OnShowingAndCall();
+            return panelOnShowing[typeof(T)] as T;
+        }
         
         T relevantPanel = panelDic[typeof(T)] as T;
         int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
@@ -53,9 +58,14 @@ public class UIManager : Singleton<UIManager>
 
     public PanelBase ShowPanel(Type panelType)
     {
-        if (!panelType.IsAssignableFrom(typeof(PanelBase)) ||
-            panelOnShowing.ContainsKey(panelType) || 
+        if (!typeof(PanelBase).IsAssignableFrom(panelType) ||
             !panelDic.ContainsKey(panelType)) return null;
+        
+        if (panelOnShowing.ContainsKey(panelType))
+        {
+            panelOnShowing[panelType].OnShowingAndCall();
+            return panelOnShowing[panelType];
+        }
         
         PanelBase relevantPanel = panelDic[panelType];
         int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
@@ -79,22 +89,55 @@ public class UIManager : Singleton<UIManager>
         int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
         
         relevantPanel.OnHide();
+
+        if (relevantPanel.isHideDirectly)
+        {
+            PoolManager.Instance.PushGameObject(relevantPanel.gameObject);
+            panelOnShowing.Remove(typeof(T));
+            isHavePanelShowLayer[relevantPanel.panelSortingLayer] = false;
+            panelLayers[relevantPanelSortingLayer].raycastTarget = false;
+        }
+    }
+
+    public void HidePanel(Type panelType)
+    {
+        if (!panelOnShowing.ContainsKey(panelType) ||
+            !typeof(PanelBase).IsAssignableFrom(panelType)) return;
+
+        PanelBase relevantPanel = panelOnShowing[panelType];
+        int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
+        
+        relevantPanel.OnHide();
+
+        if (relevantPanel.isHideDirectly)
+        {
+            PoolManager.Instance.PushGameObject(relevantPanel.gameObject);
+            panelOnShowing.Remove(panelType);
+            isHavePanelShowLayer[relevantPanel.panelSortingLayer] = false;
+            panelLayers[relevantPanelSortingLayer].raycastTarget = false;
+        }
+    }
+
+    public void ClearPanelCache<T>() where T : PanelBase
+    {
+        if (!panelOnShowing.ContainsKey(typeof(T))) return;
+
+        T relevantPanel = panelOnShowing[typeof(T)] as T;
+        int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
         
         PoolManager.Instance.PushGameObject(relevantPanel.gameObject);
         panelOnShowing.Remove(typeof(T));
         isHavePanelShowLayer[relevantPanel.panelSortingLayer] = false;
         panelLayers[relevantPanelSortingLayer].raycastTarget = false;
     }
-
-    public void HidePanel(Type panelType)
+    
+    public void ClearPanelCache(Type panelType)
     {
-        if (!panelType.IsAssignableFrom(typeof(PanelBase))) return;
-        if (!panelOnShowing.ContainsKey(panelType)) return;
-
+        if (!panelOnShowing.ContainsKey(panelType) || 
+            !typeof(PanelBase).IsAssignableFrom(panelType)) return;
+        Debug.Log("ClearPanelCache");
         PanelBase relevantPanel = panelOnShowing[panelType];
         int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
-        
-        relevantPanel.OnHide();
         
         PoolManager.Instance.PushGameObject(relevantPanel.gameObject);
         panelOnShowing.Remove(panelType);

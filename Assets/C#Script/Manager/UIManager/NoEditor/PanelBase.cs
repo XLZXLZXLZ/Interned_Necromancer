@@ -7,6 +7,7 @@ public abstract class PanelBase : MonoBehaviour
 {
     public bool isShow { get; private set; }
     public abstract int panelSortingLayer { get;}
+    public abstract bool isHideDirectly { get; }
 
     protected virtual void Start()
     {
@@ -29,6 +30,11 @@ public abstract class PanelBase : MonoBehaviour
         isShow = true;
     }
 
+    public virtual void OnShowingAndCall()
+    {
+        
+    }
+
     /// <summary>
     /// 面板隐藏时执行的逻辑
     /// </summary>
@@ -41,4 +47,25 @@ public abstract class PanelBase : MonoBehaviour
     {
         UIManager.Instance.HidePanel(this.GetType());
     }
+
+    protected void ClearSelfCache()
+    {
+        UIManager.Instance.ClearPanelCache(this.GetType());
+        Debug.Log("ClearSelfCache");
+    }
 }
+
+// protected override void Init()
+// {
+//     base.Init();
+// }
+//
+// public override void OnShow()
+// {
+//     base.OnShow();
+// }
+//
+// public override void OnHide()
+// {
+//     base.OnHide();
+// }

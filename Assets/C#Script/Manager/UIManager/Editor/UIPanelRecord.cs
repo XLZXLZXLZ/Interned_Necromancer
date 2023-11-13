@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIPanelRecord
 {
-    private const string panelContainerPath = @"Assets/0.Scripts/Managers/UIManager/PanelContainer.asset";
+    private const string panelContainerPath = @"Assets/C#Script/Manager/UIManager/PanelContainer.asset";
     private static PanelContainer _panelContainer;
 
     private static PanelContainer panelContainer
