@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 
 public class TipsOnScreen : PanelBase
 {
@@ -12,6 +14,7 @@ public class TipsOnScreen : PanelBase
     
     [SerializeField] private TextMeshProUGUI tipText;
 
+    private TweenerCore<Color, Color, ColorOptions> callback;
     protected override void Init()
     {
         base.Init();
@@ -25,22 +28,29 @@ public class TipsOnScreen : PanelBase
     public override void OnShow()
     {
         base.OnShow();
-        Debug.Log("OnShow");
         tipText.DOColor(Consts.full,Consts.colorTranformTime);
+        if(callback != null)
+            callback.onComplete -= ClearSelfCache;
+
     }
 
     public override void OnShowingAndCall()
     {
-        Debug.Log("OnShowingAndCall");
+        base.OnShowingAndCall();
         tipText.DOColor(Consts.full,Consts.colorTranformTime);
+        if(callback != null)
+            callback.onComplete -= ClearSelfCache;
     }
 
     public override void OnHide()
     {
         base.OnHide();
-        Debug.Log("OnHide");
-        var callback = tipText.DOColor(Consts.transparent,Consts.colorTranformTime);
-        callback.onComplete -= ClearSelfCache;
+        callback = tipText.DOColor(Consts.transparent,Consts.colorTranformTime);
         callback.onComplete += ClearSelfCache;
+    }
+
+    public void SetText(string text)
+    {
+        tipText.text = text;
     }
 }

@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f79adec4-0fe1-46a1-92da-deec8622e8af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/C#Script/Base/Consts.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/C#Script/Base/Consts.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/Editor/UIPanelRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/Editor/UIPanelRecord.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/PanelBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/PanelBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/PanelContainer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/PanelContainer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/C#Script/UI/TipsOnScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/UI/TipsOnScreen.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +19,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/C#Script/Z.Test/TipPanelTest.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -101,7 +99,7 @@
       <updated>1699853930133</updated>
       <workItem from="1699853932763" duration="830000" />
       <workItem from="1699870890266" duration="197000" />
-      <workItem from="1699877515584" duration="3891000" />
+      <workItem from="1699877515584" duration="7762000" />
     </task>
     <servers />
   </component>
@@ -112,24 +110,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/UIManager.cs</url>
-          <line>135</line>
-          <properties documentPath="G:\GitHub\Interned_Necromancer\Assets\C#Script\Manager\UIManager\NoEditor\UIManager.cs" initialLine="135" containingFunctionPresentation="Method 'ClearPanelCache'">
-            <startOffsets>
-              <option value="4630" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4736" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

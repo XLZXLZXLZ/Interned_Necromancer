@@ -6,17 +6,18 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {    
-    [SerializeField] private Transform panelRoot;
+    [SerializeField] private Transform panelRoot;//对应的Canvas
 
-    [SerializeField] private Image[] panelLayers;
+    [SerializeField] private Image[] panelLayers;//UI面板的层级
 
-    [SerializeField] private Image uiMask;
+    [SerializeField] private bool isCanOperateUI;//是否可以进行UI操作
+    [SerializeField] private Image uiMask;//UI的遮罩，当这个东西启用时无法进行任何UI操作
 
-    [SerializeField] private PanelContainer panelContainer;
+    [SerializeField] private PanelContainer panelContainer;//各种UI面板预制体的引用
     
-    private Dictionary<Type, PanelBase> panelDic = new();
-    private Dictionary<Type, PanelBase> panelOnShowing = new();
-    private Dictionary<int, bool> isHavePanelShowLayer = new();
+    private Dictionary<Type, PanelBase> panelDic = new();       //存有的UI面板预制体的引用
+    private Dictionary<Type, PanelBase> panelOnShowing = new(); //正在显示中的UI面板
+    private Dictionary<int, bool> isHavePanelShowLayer = new(); //对应层级是否有UI面板正在显示
 
     private void Start()
     {
@@ -29,10 +30,14 @@ public class UIManager : Singleton<UIManager>
             {3,false},
             {4,false},
         };
+
+        isCanOperateUI = true;
+        uiMask.enabled = false;
     }
     
     public T ShowPanel<T>() where T : PanelBase
     {
+        if (!isCanOperateUI) return null;
         if (!panelDic.ContainsKey(typeof(T))) return null;
 
         if (panelOnShowing.ContainsKey(typeof(T)))
@@ -58,6 +63,7 @@ public class UIManager : Singleton<UIManager>
 
     public PanelBase ShowPanel(Type panelType)
     {
+        if (!isCanOperateUI) return null;
         if (!typeof(PanelBase).IsAssignableFrom(panelType) ||
             !panelDic.ContainsKey(panelType)) return null;
         
@@ -83,7 +89,13 @@ public class UIManager : Singleton<UIManager>
     
     public void HidePanel<T>() where T : PanelBase
     {
+        if (!isCanOperateUI) return;
         if (!panelOnShowing.ContainsKey(typeof(T))) return;
+        if (panelOnShowing[typeof(T)].isHiding)
+        {
+            panelOnShowing[typeof(T)].OnHiding();
+            return;
+        }
 
         T relevantPanel = panelOnShowing[typeof(T)] as T;
         int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
@@ -101,8 +113,14 @@ public class UIManager : Singleton<UIManager>
 
     public void HidePanel(Type panelType)
     {
+        if (!isCanOperateUI) return;
         if (!panelOnShowing.ContainsKey(panelType) ||
             !typeof(PanelBase).IsAssignableFrom(panelType)) return;
+        if (panelOnShowing[panelType].isHiding)
+        {
+            panelOnShowing[panelType].OnHiding();
+            return;
+        }
 
         PanelBase relevantPanel = panelOnShowing[panelType];
         int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
@@ -120,6 +138,7 @@ public class UIManager : Singleton<UIManager>
 
     public void ClearPanelCache<T>() where T : PanelBase
     {
+        if (!isCanOperateUI) return;
         if (!panelOnShowing.ContainsKey(typeof(T))) return;
 
         T relevantPanel = panelOnShowing[typeof(T)] as T;
@@ -133,6 +152,7 @@ public class UIManager : Singleton<UIManager>
     
     public void ClearPanelCache(Type panelType)
     {
+        if (!isCanOperateUI) return;
         if (!panelOnShowing.ContainsKey(panelType) || 
             !typeof(PanelBase).IsAssignableFrom(panelType)) return;
         Debug.Log("ClearPanelCache");
@@ -171,8 +191,9 @@ public class UIManager : Singleton<UIManager>
         SetMask(false);
     }
 
-    private void SetMask(bool b)
+    public void SetMask(bool b)
     {
+        isCanOperateUI = b;
         uiMask.enabled = b;
     }
 }

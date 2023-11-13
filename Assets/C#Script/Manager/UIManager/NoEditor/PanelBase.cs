@@ -5,8 +5,13 @@ using UnityEngine;
 
 public abstract class PanelBase : MonoBehaviour
 {
-    public bool isShow { get; private set; }
+    //是否在隐藏阶段（当isHideDirectly为真时，在隐藏面板时不会直接SetActive(false),需要手动调用ClearSelfCache来隐藏面板）
+    public bool isHiding { get; private set; } 
+    
+    //面板的sortingLayer（sortingLayer越高，面板显示越靠前）
     public abstract int panelSortingLayer { get;}
+    
+    //隐藏面板时是否直接SetActive(false)
     public abstract bool isHideDirectly { get; }
 
     protected virtual void Start()
@@ -19,7 +24,7 @@ public abstract class PanelBase : MonoBehaviour
     /// </summary>
     protected virtual void Init()
     {
-    
+        
     }
 
     /// <summary>
@@ -27,12 +32,15 @@ public abstract class PanelBase : MonoBehaviour
     /// </summary>
     public virtual void OnShow()
     {
-        isShow = true;
+        isHiding = false;
     }
 
+    /// <summary>
+    /// 如果面板此时仍在显示，但还是想打开面板
+    /// </summary>
     public virtual void OnShowingAndCall()
     {
-        
+        isHiding = false;
     }
 
     /// <summary>
@@ -40,18 +48,32 @@ public abstract class PanelBase : MonoBehaviour
     /// </summary>
     public virtual void OnHide()
     {
-        isShow = false;
+        if (isHideDirectly)
+            isHiding = true;
     }
 
+    /// <summary>
+    /// isHiding为真时，尝试隐藏面板时调用的函数
+    /// </summary>
+    public virtual void OnHiding()
+    {
+        
+    }
+
+    /// <summary>
+    /// 隐藏自己这个面板
+    /// </summary>
     protected void HideSelf()
     {
         UIManager.Instance.HidePanel(this.GetType());
     }
 
+    /// <summary>
+    /// 清理UIManager对这个面板的缓存
+    /// </summary>
     protected void ClearSelfCache()
     {
         UIManager.Instance.ClearPanelCache(this.GetType());
-        Debug.Log("ClearSelfCache");
     }
 }
 
