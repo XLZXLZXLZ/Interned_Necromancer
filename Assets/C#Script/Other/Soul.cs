@@ -7,6 +7,13 @@ public class Soul : MonoBehaviour
     public Vector2 targetPos;
     public GameObject monster;
     public GameObject particle;
+    public bool preSet;
+
+    private void Start()
+    {
+        if(preSet)
+            targetPos = transform.position;
+    }
 
     private void Update() //逐渐移向目标位置
     {

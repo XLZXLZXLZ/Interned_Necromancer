@@ -4,13 +4,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
-/// µ¥Àı»ùÀà,Ö»Ğè¼Ì³Ğ¸Ã»ùÀà¼´¿É±äÎªµ¥Àı,ÓÃ·¨Í¬Õı³£µ¥Àı
+/// å•ä¾‹åŸºç±»,åªéœ€ç»§æ‰¿è¯¥åŸºç±»å³å¯å˜ä¸ºå•ä¾‹,ç”¨æ³•åŒæ­£å¸¸å•ä¾‹
 /// </summary>
-/// <typeparam name="T">×ÓÀàÃû³Æ</typeparam>
+/// <typeparam name="T">å­ç±»åç§°</typeparam>
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
+    protected virtual bool IsDonDestroyOnLoad => false;
+
     private static T instance;
-    public static T Instance //µ¥Àı
+    public static T Instance //å•ä¾‹
     {
         get
         {
@@ -25,5 +27,16 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
             }
             return instance;
         }
+    }
+
+    protected virtual void Awake()
+    {
+        if (instance == null) 
+            instance = this as T;
+        else
+            Destroy(gameObject);
+
+        if(IsDonDestroyOnLoad)
+            DontDestroyOnLoad(gameObject);
     }
 }

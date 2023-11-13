@@ -12,7 +12,8 @@ public class MovingBoard : Board
     private Vector3 currentTarget;
     private bool isMoving;
 
-    public float speed;
+    public float onSpeed;//运行时速度 
+    public float offSpeed;//恢复时速度
     public bool alwaysWorking;
 
     private void Start()
@@ -25,6 +26,7 @@ public class MovingBoard : Board
 
     private void FixedUpdate()
     {
+        var speed = target.isOn ? onSpeed : offSpeed;
         if(isMoving)
         {
             transform.position = isLerp? Vector3.Lerp(transform.position, currentTarget, speed * Time.fixedDeltaTime) : Vector3.MoveTowards(transform.position, currentTarget, speed * Time.fixedDeltaTime);
@@ -51,10 +53,12 @@ public class MovingBoard : Board
         isMoving = true;
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
-        Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(destination, 0.5f);
+        if (Application.isPlaying)
+            return;
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position + destination, 0.5f);
         Gizmos.DrawLine(transform.position, transform.position + destination);
 
         if (targetSwitch != null)

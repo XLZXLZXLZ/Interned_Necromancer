@@ -16,6 +16,11 @@ public class DieAndRevive : MonoBehaviour
     public Soul[] soul;
     public Vector2 revivePos;
 
+    private void Start()
+    {
+        revivePos = transform.position;
+    }
+
     //触发死亡扳机(即将进入死亡时)
     public void DeathTrigger(DeathType type)
     {

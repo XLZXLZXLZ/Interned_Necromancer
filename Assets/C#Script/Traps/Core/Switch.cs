@@ -24,6 +24,15 @@ public class Switch : MonoBehaviour
             isTouch = true;
             OnTouch(collision);
         }
+
+        if(collision.gameObject.tag == "Monster")
+        {
+            if(collision.TryGetComponent(out Zombie zombie))
+            {
+                isTouch = true;
+                OnTouch(collision);
+            }
+        }
     }
 
     protected virtual void OnTriggerExit2D(Collider2D collision)
@@ -32,6 +41,15 @@ public class Switch : MonoBehaviour
         {
             isTouch = false;
             OnExit(collision);
+        }
+
+        if (collision.gameObject.tag == "Monster")
+        {
+            if (collision.TryGetComponent(out Zombie zombie))
+            {
+                isTouch = false;
+                OnExit(collision);
+            }
         }
     }
 

@@ -6,7 +6,7 @@ public class Board : MonoBehaviour
 {
     public GameObject targetSwitch;
 
-    private Switch target;
+    protected Switch target;
 
     private void Awake()
     {
