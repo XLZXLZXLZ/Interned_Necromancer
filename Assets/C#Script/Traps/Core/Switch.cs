@@ -9,7 +9,8 @@ public class Switch : MonoBehaviour
     public SwitchAction switchOff;
     public bool isOn;
 
-    protected bool isTouch;
+    private int touchCount;
+    protected bool isTouch => touchCount > 0;
 
     protected virtual void Update()
     {
@@ -17,11 +18,12 @@ public class Switch : MonoBehaviour
             InteractAction();
     }
 
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            isTouch = true;
+            touchCount++;
             OnTouch(collision);
         }
 
@@ -29,7 +31,7 @@ public class Switch : MonoBehaviour
         {
             if(collision.TryGetComponent(out Zombie zombie))
             {
-                isTouch = true;
+                touchCount++;
                 OnTouch(collision);
             }
         }
@@ -39,16 +41,19 @@ public class Switch : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            isTouch = false;
-            OnExit(collision);
+            touchCount--;
+            if (!isTouch)
+                OnExit(collision);
         }
 
         if (collision.gameObject.tag == "Monster")
         {
             if (collision.TryGetComponent(out Zombie zombie))
             {
-                isTouch = false;
-                OnExit(collision);
+                touchCount--;
+
+                if(!isTouch)
+                    OnExit(collision);
             }
         }
     }

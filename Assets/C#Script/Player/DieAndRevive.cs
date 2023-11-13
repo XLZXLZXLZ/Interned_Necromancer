@@ -10,15 +10,27 @@ public enum DeathType
     Fall,
     Drown
 }
-public class DieAndRevive : MonoBehaviour
+public class DieAndRevive : Singleton<DieAndRevive>
 {
+    [SerializeField]
+    private GameObject respawnParticle;
+
+    [HideInInspector]
     public DeathType deathReason;
     public Soul[] soul;
-    public Vector2 revivePos;
-
-    private void Start()
+    private RespawnPoint revivePos;
+    public RespawnPoint RevivePos
     {
-        revivePos = transform.position;
+        get { return revivePos; }
+        set
+        {
+            if (revivePos != value)
+            {
+                revivePos?.CancelRespawnPoint();
+                revivePos = value;
+                revivePos?.SetRespawnPoint();
+            }
+        }
     }
 
     //触发死亡扳机(即将进入死亡时)
@@ -52,7 +64,8 @@ public class DieAndRevive : MonoBehaviour
     //复活事件
     public void OnRevive()
     {
-        transform.position = revivePos;
+        transform.position = RevivePos.transform.position + Vector3.up * 3;
+        Instantiate(respawnParticle,RevivePos.transform.position + Vector3.up * 0.5f, Quaternion.identity);
         deathReason = DeathType.Null;
     }
 }

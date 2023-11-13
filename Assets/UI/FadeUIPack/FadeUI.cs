@@ -12,8 +12,9 @@ public class FadeUI : Singleton<FadeUI>
     bool isPlaying;
     Animator anim;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         anim = GetComponent<Animator>();
     }
 

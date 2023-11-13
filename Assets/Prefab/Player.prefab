@@ -220,12 +220,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f04733e0fc53fe479e291d55d18da12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnParticle: {fileID: 8821749303203769223, guid: bac756662f0ff7c4c8d20503c89fe3a2, type: 3}
   deathReason: 0
   soul:
   - {fileID: 6207417467140412655, guid: 884a69868a4e8c443bae9e192e71b088, type: 3}
   - {fileID: 6128617178822300774, guid: 0be606da2ec44cd49b75efd6d5b6ed6a, type: 3}
   - {fileID: 8784800450706473475, guid: 4872109d31732234282d143ed83d472d, type: 3}
-  revivePos: {x: -2, y: 0}
 --- !u!1 &6433546942844745208
 GameObject:
   m_ObjectHideFlags: 0
