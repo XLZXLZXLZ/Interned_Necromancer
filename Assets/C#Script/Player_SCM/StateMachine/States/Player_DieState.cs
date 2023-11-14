@@ -9,11 +9,11 @@ public class Player_DieState : PlayerStates
     {
         base.Enter();
         rb.velocity = Vector2.zero;
-        rb.gravityScale = 0f;
         switch(death.deathReason)
         {
             case DeathType.Burn:
                 anim.Play("Die1");
+                rb.gravityScale = 0f;
                 break;
             case DeathType.Fall:
                 anim.Play("Die2");
@@ -29,6 +29,7 @@ public class Player_DieState : PlayerStates
         base.LogicUpdate();
         if (death.deathReason != DeathType.Null)
             return;
+        rb.velocity = new Vector2(0f, rb.velocity.y);
 
         stateMachine.SwitchState(typeof(Player_IdleState));
     }

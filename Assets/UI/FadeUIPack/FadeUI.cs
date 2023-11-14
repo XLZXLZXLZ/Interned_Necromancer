@@ -25,9 +25,12 @@ public class FadeUI : Singleton<FadeUI>
 
         isPlaying = true;
         anim.Play("FadeIn");
-        yield return null;
+        yield return new WaitForSeconds(0.1f);
         while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1f)
+        {
+            print(anim.GetCurrentAnimatorStateInfo(0).IsName("FadeIn"));
             yield return null;
+        }
         action?.Invoke();
         yield return new WaitForSeconds(0.2f);
         anim.Play("FadeOut");

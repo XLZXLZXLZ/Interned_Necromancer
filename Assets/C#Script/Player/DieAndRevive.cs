@@ -1,6 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+
+public partial class EventManager:Singleton<EventManager>
+{
+    public UnityAction<DieAndRevive> OnPlayerDie;
+}
 
 public enum DeathType
 {
@@ -15,9 +22,12 @@ public class DieAndRevive : Singleton<DieAndRevive>
     [SerializeField]
     private GameObject respawnParticle;
 
+    public int lifeLeft = 5;
+    public Soul[] soul;
+
     [HideInInspector]
     public DeathType deathReason;
-    public Soul[] soul;
+
     private RespawnPoint revivePos;
     public RespawnPoint RevivePos
     {
@@ -39,10 +49,19 @@ public class DieAndRevive : Singleton<DieAndRevive>
         if (deathReason != DeathType.Null)
             return;
         deathReason = type;
+
+        lifeLeft--;
+        EventManager.Instance.OnPlayerDie?.Invoke(this);
     }
     //死亡事件
     public void OnDeath()
     {
+        if (lifeLeft <= 0)
+        {
+            FadeUI.Instance.Fade(SceneManager.GetActiveScene().name);
+            return;
+        }
+
         Soul s;
         switch(deathReason)
         {
@@ -64,6 +83,9 @@ public class DieAndRevive : Singleton<DieAndRevive>
     //复活事件
     public void OnRevive()
     {
+        if(lifeLeft <= 0) //生命值归零，重载场景
+            return;
+
         transform.position = RevivePos.transform.position + Vector3.up * 3;
         Instantiate(respawnParticle,RevivePos.transform.position + Vector3.up * 0.5f, Quaternion.identity);
         deathReason = DeathType.Null;

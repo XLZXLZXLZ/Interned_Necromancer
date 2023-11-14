@@ -63,7 +63,6 @@ public class Player_FallState : PlayerStates
 
         if (controller.IsGround)
         {
-            MonoBehaviour.print(rb.velocity.y);
             if(rb.velocity.y < -info.fallDeathVelocity)
             {
                 player.GetComponent<DieAndRevive>().DeathTrigger(DeathType.Fall);
