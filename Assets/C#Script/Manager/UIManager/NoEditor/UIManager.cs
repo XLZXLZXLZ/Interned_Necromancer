@@ -37,28 +37,7 @@ public class UIManager : Singleton<UIManager>
     
     public T ShowPanel<T>() where T : PanelBase
     {
-        if (!isCanOperateUI) return null;
-        if (!panelDic.ContainsKey(typeof(T))) return null;
-
-        if (panelOnShowing.ContainsKey(typeof(T)))
-        {
-            panelOnShowing[typeof(T)].OnShowingAndCall();
-            return panelOnShowing[typeof(T)] as T;
-        }
-        
-        T relevantPanel = panelDic[typeof(T)] as T;
-        int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
-        
-        if (isHavePanelShowLayer[relevantPanel.panelSortingLayer]) return null;
-        
-        T panel = PoolManager.Instance.GetGameObject(relevantPanel,panelLayers[relevantPanelSortingLayer].transform);
-        panel.OnShow();
-        
-        panelOnShowing.Add(typeof(T),panel);
-        isHavePanelShowLayer[relevantPanelSortingLayer] = true;
-        panelLayers[relevantPanelSortingLayer].raycastTarget = true;
-
-        return panel;
+        return ShowPanel(typeof(T)) as T;
     }
 
     public PanelBase ShowPanel(Type panelType)
@@ -89,26 +68,7 @@ public class UIManager : Singleton<UIManager>
     
     public void HidePanel<T>() where T : PanelBase
     {
-        if (!isCanOperateUI) return;
-        if (!panelOnShowing.ContainsKey(typeof(T))) return;
-        if (panelOnShowing[typeof(T)].isHiding)
-        {
-            panelOnShowing[typeof(T)].OnHiding();
-            return;
-        }
-
-        T relevantPanel = panelOnShowing[typeof(T)] as T;
-        int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
-        
-        relevantPanel.OnHide();
-
-        if (relevantPanel.isHideDirectly)
-        {
-            PoolManager.Instance.PushGameObject(relevantPanel.gameObject);
-            panelOnShowing.Remove(typeof(T));
-            isHavePanelShowLayer[relevantPanel.panelSortingLayer] = false;
-            panelLayers[relevantPanelSortingLayer].raycastTarget = false;
-        }
+        HidePanel(typeof(T));
     }
 
     public void HidePanel(Type panelType)
@@ -138,16 +98,7 @@ public class UIManager : Singleton<UIManager>
 
     public void ClearPanelCache<T>() where T : PanelBase
     {
-        if (!isCanOperateUI) return;
-        if (!panelOnShowing.ContainsKey(typeof(T))) return;
-
-        T relevantPanel = panelOnShowing[typeof(T)] as T;
-        int relevantPanelSortingLayer = relevantPanel.panelSortingLayer;
-        
-        PoolManager.Instance.PushGameObject(relevantPanel.gameObject);
-        panelOnShowing.Remove(typeof(T));
-        isHavePanelShowLayer[relevantPanel.panelSortingLayer] = false;
-        panelLayers[relevantPanelSortingLayer].raycastTarget = false;
+        ClearPanelCache(typeof(T));
     }
     
     public void ClearPanelCache(Type panelType)

@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f79adec4-0fe1-46a1-92da-deec8622e8af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/PanelBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/PanelBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/C#Script/UI/TipsOnScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/UI/TipsOnScreen.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,10 +75,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="101904">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="101904" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -99,7 +96,7 @@
       <updated>1699853930133</updated>
       <workItem from="1699853932763" duration="830000" />
       <workItem from="1699870890266" duration="197000" />
-      <workItem from="1699877515584" duration="7762000" />
+      <workItem from="1699877515584" duration="8232000" />
     </task>
     <servers />
   </component>
