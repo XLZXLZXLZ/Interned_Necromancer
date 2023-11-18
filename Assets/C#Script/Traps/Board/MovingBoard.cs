@@ -57,6 +57,9 @@ public class MovingBoard : Board
     {
         if (Application.isPlaying)
             return;
+
+        var core = transform.Find("Core").transform;
+
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position + destination, 0.5f);
         Gizmos.DrawLine(transform.position, transform.position + destination);
@@ -65,7 +68,7 @@ public class MovingBoard : Board
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(targetSwitch.transform.position, 0.5f);
-            Gizmos.DrawLine(transform.position, targetSwitch.transform.position);
+            Gizmos.DrawLine(core ? core.position : transform.position, targetSwitch.transform.position);
         }
     }
 }

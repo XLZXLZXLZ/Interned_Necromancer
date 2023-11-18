@@ -29,9 +29,15 @@ public class Player_DieState : PlayerStates
         base.LogicUpdate();
         if (death.deathReason != DeathType.Null)
             return;
-        rb.velocity = new Vector2(0f, rb.velocity.y);
+        
 
         stateMachine.SwitchState(typeof(Player_IdleState));
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+        rb.velocity = new Vector2(0f, rb.velocity.y);
     }
 
     public override void Exit()
