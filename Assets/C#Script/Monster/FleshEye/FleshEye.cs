@@ -65,6 +65,7 @@ public class FleshEye : Monster
     public float downRightBoxCastDistance = 0.1f; // 右下包围盒投射距离
 
     private bool isTouched = false;
+    private bool isRealTouched => isLeft || isRight || isUp || isDown || isDownLeft || isDownRight || isUpLeft || isUpRight;
 
     private void OnDrawGizmosSelected()
     {
@@ -84,16 +85,26 @@ public class FleshEye : Monster
 
     private void Update()
     {
+        //未接触墙体时，快速下落直到碰撞到墙体
         if(!isTouched)
         {
-            if (isLeft || isRight || isUp || isDown)
+            if (isRealTouched)
             {
                 rb.gravityScale = 0;
                 isTouched = true;
             }
         }
 
-        if(!controllable) return;
+        if(isTouched)
+        {
+            if (!isRealTouched)
+            {
+                rb.gravityScale = 8;
+                isTouched = false;
+            }
+        }
+
+        if(!controllable||!isTouched) return;
 
         bool left = false, right = false,up = false,down = false;
         // 检测输入

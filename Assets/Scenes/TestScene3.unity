@@ -729,6 +729,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7798242984234944367, guid: 79d65b1820bd3cd429cbcf5820e98ea0, type: 3}
+      propertyPath: fallDeathVelocity
+      value: 999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79d65b1820bd3cd429cbcf5820e98ea0, type: 3}
 --- !u!1001 &819451800
@@ -1597,7 +1601,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths: []

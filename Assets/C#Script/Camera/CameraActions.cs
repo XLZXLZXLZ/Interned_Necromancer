@@ -13,7 +13,7 @@ public class CameraActions : Singleton<CameraActions>
     public Transform SetFocus;
 
     Camera cam;
-    Transform player_pos;//ÕÊº“Œª÷√
+    Transform player_pos;//Áé©ÂÆ∂‰ΩçÁΩÆ
 
     private void Awake()
     {
@@ -22,8 +22,7 @@ public class CameraActions : Singleton<CameraActions>
     }
              
     private void Start()        
-    {       
-        transform.position = player_pos.position;      
+    {           
         SetFocus = player_pos;
     }
 

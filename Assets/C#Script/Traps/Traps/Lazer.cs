@@ -89,7 +89,12 @@ public class Lazer : MonoBehaviour
 
         //打开时尝试追踪最远的墙体或敌人碰撞体(眼球或僵尸)
         if (!isOn)
+        {
+            CastFleshEye = null;
+            LazerSwitch = null;
             return;
+        }
+
         RaycastHit2D target;
         var hits = Physics2D.RaycastAll(startPosition, dir , maxDistance, LayerMask.GetMask("Ground", "Monster","Gear"));
         Array.Sort(hits, (x, y) => x.distance.CompareTo(y.distance));
@@ -143,7 +148,7 @@ public class Lazer : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.up * maxDistance);
+        Gizmos.DrawLine(transform.position, transform.position + transform.up * Mathf.Min(40f, maxDistance));
 
         if (targetSwitch != null)
         {
@@ -157,6 +162,7 @@ public class Lazer : MonoBehaviour
         destination.gameObject.SetActive(false);
         width = 0;
         isOn = false;
+        
     }
 
     public void OpenLazer()

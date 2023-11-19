@@ -3,34 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerInput: MonoBehaviour
 {
-    //Íæ¼ÒÊäÈë
+    //ç©å®¶è¾“å…¥
     PlayerInputActions action;
 
-    //WSAD²Ù×÷Öá
+    //WSADæ“ä½œè½´
     public Vector2 axes => action.GamePlay.Move.ReadValue<Vector2>();
 
-    //°´ÏÂ×ó¼ü
-    public bool Skill => Input.GetMouseButton(0);
-    //ÌøÔ¾
+    //æŒ‰ä¸‹å·¦é”®
+    public bool Skill => Input.GetMouseButtonDown(0);
+
+    //è·³è·ƒ
     public bool Jump => action.GamePlay.Jump.WasPressedThisFrame();
 
-    //°´×¡ÌøÔ¾¼ü
+    //æŒ‰ä½è·³è·ƒé”®
     public bool Jumping => action.GamePlay.Jump.IsPressed();
 
-    //Í£Ö¹ÌøÔ¾
+    //åœæ­¢è·³è·ƒ
     public bool StopJump => action.GamePlay.Jump.WasReleasedThisFrame();
 
-    //ÌøÔ¾Ô¤ÊäÈë
+    //è·³è·ƒé¢„è¾“å…¥
     public bool JumpBuffer = false;
 
 
-    //Íæ¼ÒÊäÈë¶¯×÷±íÊµÀı»¯
+    //ç©å®¶è¾“å…¥åŠ¨ä½œè¡¨å®ä¾‹åŒ–
     private void Awake()
     {
         action = new PlayerInputActions();
     }
 
-    //ÊÇ·ñ¿ªÆôÍæ¼Ò¶¯×÷±í
+    //æ˜¯å¦å¼€å¯ç©å®¶åŠ¨ä½œè¡¨
     public void InputEnable(bool isOn)
     {
         if (isOn)
@@ -39,7 +40,7 @@ public class PlayerInput: MonoBehaviour
             action.GamePlay.Disable();
     }
 
-    //Íæ¼ÒÌøÔ¾Ô¤ÊäÈë¼°ÏàÓ¦Ğ­³Ì
+    //ç©å®¶è·³è·ƒé¢„è¾“å…¥åŠç›¸åº”åç¨‹
     public void JumpBufferInput()
     {
         StopCoroutine(nameof(JumpBufferHold));

@@ -8,7 +8,6 @@ public class Monster : MonoBehaviour
     private void OnMouseDown()
     {
         ControllerManager.Instance.CurrentControl = this;
-        print("按下");
     }
 
     private float timer = 0;

@@ -14,13 +14,13 @@ public class Ghost : Monster
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        // ¼ÆËãÒÆ¶¯ÏòÁ¿
+        // è®¡ç®—ç§»åŠ¨å‘é‡
         Vector3 movement = new Vector2(horizontalInput, verticalInput) * speed * Time.deltaTime;
 
-        // ¼ÆËãĞÂµÄÎ»ÖÃ
+        // è®¡ç®—æ–°çš„ä½ç½®
         Vector3 newPosition = transform.position + movement;
 
-        // ÏŞÖÆĞÂµÄÎ»ÖÃÔÚ°ë¾¶ÎªboundaryRadiusµÄÔ²ÄÚ
+        // é™åˆ¶æ–°çš„ä½ç½®åœ¨åŠå¾„ä¸ºboundaryRadiusçš„åœ†å†…
         Vector3 offset = newPosition - transform.parent.position;
         if (offset.magnitude > boundaryRadius)
         {
@@ -28,7 +28,7 @@ public class Ghost : Monster
             newPosition = transform.parent.position + offset;
         }
 
-        // ¸üĞÂÎïÌåµÄÎ»ÖÃ
+        // æ›´æ–°ç‰©ä½“çš„ä½ç½®
         transform.position = newPosition;
     }
 }
