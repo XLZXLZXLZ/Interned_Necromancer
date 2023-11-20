@@ -31,8 +31,9 @@ public class ControllerManager : Singleton<ControllerManager>
         }
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         player = GameObject.FindGameObjectWithTag("Player");
         currentControl = null;
     }

@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScene5.unity
     guid: f547237d018d0fb498c2e1a661e73b31
   - enabled: 1
-    path: Assets/Scenes/TestScene6.unity
+    path: Assets/Scenes/TestScene7.unity
     guid: 7d7e117a9a49ad4438aebca85c878966
   - enabled: 1
     path: Assets/Scenes/TestScene_Seyang.unity

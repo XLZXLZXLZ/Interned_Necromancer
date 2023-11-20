@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class FleshEye : Monster
     private Transform sprite;
     private FleshEyeBall eyeBall;
     private Lazer lazer;
+    private LineRenderer arrow;
 
     public Vector2 eyeDir => eyeBall.eyeDir;
 
@@ -19,6 +21,8 @@ public class FleshEye : Monster
         eyeBall = GetComponentInChildren<FleshEyeBall>();
         lazer = GetComponentInChildren<Lazer>();
         sprite = transform.Find("Sprite");
+        arrow = transform.Find("Arrow").GetComponent<LineRenderer>();
+        arrow.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -175,6 +179,9 @@ public class FleshEye : Monster
 
         sprite.Rotate(0, 0, Time.deltaTime * 180 * rotateEffect);
         lazer.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(eyeDir.y, eyeDir.x) * Mathf.Rad2Deg - 90);
+
+        arrow.SetPosition(0, transform.position);
+        arrow.SetPosition(1, transform.position + (Vector3)eyeDir.normalized * 10f);
     }
 
     #endregion
@@ -186,22 +193,32 @@ public class FleshEye : Monster
     public void OnActive()
     {
         input++;
-        lazer.OpenLazer();
+        if(!controllable)
+            lazer.OpenLazer();
     }
 
     public void OnDisActive()
     {
         input--;
-        if(input <= 0)
+        if(input <= 0 || controllable)
             lazer.ShutLazer();
     }
 
     #endregion
 
+    public override void OnControl()
+    {
+        base.OnControl();
+        lazer.ShutLazer();
+        arrow.gameObject.SetActive(true);
+    }
 
     public override void OnControlEnd()
     {
         base.OnControlEnd();
-        rb.velocity = Vector2.zero; 
+        rb.velocity = Vector2.zero;
+        if (input > 0)
+            lazer.OpenLazer();
+        arrow.gameObject.SetActive(false);
     }
 }
