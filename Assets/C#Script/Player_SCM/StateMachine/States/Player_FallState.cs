@@ -10,7 +10,6 @@ public class Player_FallState : PlayerStates
     {
         base.Enter();
 
-        rb.gravityScale *= 1.5f;
         anim.Play("Fall");
     }
 
@@ -84,7 +83,6 @@ public class Player_FallState : PlayerStates
     public override void Exit()
     {
         base.Exit();
-        rb.gravityScale /= 1.5f;
     }
 
     public override void PhysicsUpdate()

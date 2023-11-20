@@ -15,8 +15,9 @@ public class CameraActions : Singleton<CameraActions>
     Camera cam;
     Transform player_pos;//玩家位置
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         player_pos = GameObject.FindGameObjectWithTag("Player").transform; 
         cam = Camera.main;         
     }
@@ -66,5 +67,25 @@ public class CameraActions : Singleton<CameraActions>
         Gizmos.DrawLine(new Vector3(leftEdge,topEdge), new Vector3(rightEdge, topEdge));
         Gizmos.DrawLine(new Vector3(leftEdge,topEdge),new Vector3(leftEdge, bottomEdge));
         Gizmos.DrawLine(new Vector3(rightEdge, topEdge), new Vector3(rightEdge, bottomEdge));
+    }
+
+    //相机震动携程
+    public void CameraShake(float time, float intensity)
+    {
+        StartCoroutine(CameraShakeCoroutine(time, intensity));
+    }
+    private bool isShaking;
+    private IEnumerator CameraShakeCoroutine(float time,float intensity)
+    {
+        if(isShaking) yield break;
+
+        isShaking = true;
+        while(time > 0)
+        {
+            time -= Time.deltaTime;
+            cam.transform.position += (Vector3)Random.insideUnitCircle * intensity;
+            yield return null;
+        }
+        isShaking= false;
     }
 }

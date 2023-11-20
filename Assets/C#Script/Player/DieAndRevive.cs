@@ -21,6 +21,10 @@ public class DieAndRevive : Singleton<DieAndRevive>
 {
     [SerializeField]
     private GameObject respawnParticle;
+    [SerializeField]
+    private GameObject bloodParticle;
+    [SerializeField]
+    private GameObject lazerParticle;
 
     public int lifeLeft = 5;
     public Soul[] soul;
@@ -49,6 +53,23 @@ public class DieAndRevive : Singleton<DieAndRevive>
         if (deathReason != DeathType.Null)
             return;
         deathReason = type;
+
+        switch (deathReason)
+        {
+            case DeathType.Spike:
+                Instantiate(bloodParticle, transform.position, Quaternion.identity);
+                CameraActions.Instance.CameraShake(0.1f, 0.15f);
+                break;
+            case DeathType.Burn:
+                Instantiate(lazerParticle, transform.position, Quaternion.identity);
+                break;
+            case DeathType.Fall:
+                Instantiate(bloodParticle, transform.position, Quaternion.identity);
+                CameraActions.Instance.CameraShake(0.2f, 0.25f);
+                break;
+            default:
+                break;
+        }
 
         lifeLeft--;
         EventManager.Instance.OnPlayerDie?.Invoke(this);

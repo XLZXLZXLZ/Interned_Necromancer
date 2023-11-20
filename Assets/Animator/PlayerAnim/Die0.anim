@@ -58,13 +58,13 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -1068761358, guid: 7249a6e767a7607478e1dd71548b253d, type: 3}
-    - time: 0.083333336
+    - time: 0.05
       value: {fileID: 1048889998, guid: 7249a6e767a7607478e1dd71548b253d, type: 3}
-    - time: 0.16666667
+    - time: 0.1
       value: {fileID: 1144514048, guid: 7249a6e767a7607478e1dd71548b253d, type: 3}
-    - time: 0.23333333
+    - time: 0.16666667
       value: {fileID: 1304159740, guid: 7249a6e767a7607478e1dd71548b253d, type: 3}
-    - time: 0.31666666
+    - time: 0.21666667
       value: {fileID: 231328493, guid: 7249a6e767a7607478e1dd71548b253d, type: 3}
     - time: 2
       value: {fileID: -629071759, guid: 7249a6e767a7607478e1dd71548b253d, type: 3}
