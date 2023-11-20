@@ -8,6 +8,6 @@ public class DEBUGGER : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            FadeUI.Instance.Fade(SceneManager.GetActiveScene().name);
+            FadeUI.Instance.Fade("ChooseScene");
     }
 }
