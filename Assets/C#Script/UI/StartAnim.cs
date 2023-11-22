@@ -8,10 +8,9 @@ public class StartAnim : MonoBehaviour
 
     private void Start()
     {
-        if (!firstEnter)
+        if (firstEnter)
         {
-            gameObject.SetActive(false);
-            title
+            GetComponent<Animator>().Play("TitleAnim");
         }
         firstEnter = false;
     }
