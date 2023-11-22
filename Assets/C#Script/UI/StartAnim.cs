@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class StartAnim : MonoBehaviour
 
     public void ShowTitle()
     {
+        //transform.DOShakePosition(0.1f, 24f,50,90);
         ShakeScene(0.1f);
         //播放音效
     }
