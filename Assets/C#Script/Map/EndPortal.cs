@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class EndPortal : MonoBehaviour
 {
     private Transform core;
+    [SerializeField]
+    private GameObject particle;
 
     private void Update()
     {
@@ -22,7 +24,9 @@ public class EndPortal : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             FadeUI.Instance.Fade("ChooseScene");
+            Instantiate(particle, core.transform.position, Quaternion.identity);
             Destroy(core.gameObject);
+            Destroy(this);
         }
     }
 }

@@ -65,14 +65,14 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: d3fa8fc889136b3448f3a3a1aba026c6, type: 2}
+    m_Data: {fileID: 11400000, guid: 04bdb9feba585b74c88e7bfff4a13761, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: a3be3bd544d4b414c9245d111b1ee1b5, type: 2}
+    m_Data: {fileID: 11400000, guid: bcf2c119380d84146aadf031047fa3f9, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
-    m_Data: {fileID: 1201938998, guid: 4915a16e7f065d44c97ba4e8811cd7bc, type: 3}
+    m_Data: {fileID: 1386501652, guid: 4915a16e7f065d44c97ba4e8811cd7bc, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -506240534, guid: 4915a16e7f065d44c97ba4e8811cd7bc, type: 3}
+    m_Data: {fileID: -1987081909, guid: 4915a16e7f065d44c97ba4e8811cd7bc, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 2
     m_Data:
@@ -179,7 +179,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0.029411793, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -247,7 +247,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015474319, y: -0.84329104}
+  m_Offset: {x: -0.011687279, y: -0.6192012}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -258,7 +258,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8974495, y: 2.1914387}
+  m_Size: {x: 1.0825787, y: 1.743259}
   m_EdgeRadius: 0
 --- !u!114 &2273545736941967187
 MonoBehaviour:
@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041551139426553469c10352a0c2d455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 2077920865344082089, guid: 547e9c2f21e894e498d1c226b19e7d08, type: 3}
 --- !u!1 &2273545737265112598
 GameObject:
   m_ObjectHideFlags: 0
