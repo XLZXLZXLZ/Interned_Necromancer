@@ -8,8 +8,11 @@ public class StartAnim : MonoBehaviour
 
     private void Start()
     {
-        if(!firstEnter)
+        if (!firstEnter)
+        {
             gameObject.SetActive(false);
+            title
+        }
         firstEnter = false;
     }
 
@@ -32,7 +35,7 @@ public class StartAnim : MonoBehaviour
         while(timer < time)
         {
             timer += Time.deltaTime;
-            rect.position = startPos + Random.insideUnitCircle * 6f;
+            rect.position = startPos + Random.insideUnitCircle * 12f;
             yield return null;
         }
         rect.position = startPos;
