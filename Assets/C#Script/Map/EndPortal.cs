@@ -23,7 +23,22 @@ public class EndPortal : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            FadeUI.Instance.Fade("ChooseScene");
+            AudioManager.Instance.PlaySe("EndLevel");
+
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            char lastCharacter = currentSceneName[currentSceneName.Length - 1];
+            if (char.IsDigit(lastCharacter))
+            {
+                int index = int.Parse(lastCharacter.ToString());
+                if (index >= 7)
+                    FadeUI.Instance.Fade("ChooseScene");
+                else
+                    FadeUI.Instance.Fade("TestScene" + (index + 1));
+            }
+            else
+            {
+                FadeUI.Instance.Fade("ChooseScene");
+            }
             Instantiate(particle, core.transform.position, Quaternion.identity);
             Destroy(core.gameObject);
             Destroy(this);
