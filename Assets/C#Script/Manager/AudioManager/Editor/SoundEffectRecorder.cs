@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SoundEffectRecorder
 {
-    private const string soundEffectContainerPath = @"Assets/0.Scripts/Managers/AudioManager/SoundEffectContainer.asset";
+    private const string soundEffectContainerPath = @"Assets/C#Script/Manager/AudioManager/BgmContainer.asset";
     private static SoundEffectContainer _soundEffectContainer;
 
     private static SoundEffectContainer soundEffectContainer

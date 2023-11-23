@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BgmRecorder
 {
-    private const string bgmContainerPath = @"Assets/0.Scripts/Managers/AudioManager/BgmContainer.asset";
+    private const string bgmContainerPath = @"Assets/C#Script/Manager/AudioManager/BgmContainer.asset";
     private static BgmContainer _bgmContainer;
 
     private static BgmContainer bgmContainer
