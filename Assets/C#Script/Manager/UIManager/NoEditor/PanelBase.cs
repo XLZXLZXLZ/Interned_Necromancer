@@ -13,6 +13,7 @@ public abstract class PanelBase : MonoBehaviour
     
     //隐藏面板时是否直接SetActive(false)
     public abstract bool isHideDirectly { get; }
+    public event Action onHideCallback;
 
     protected virtual void Start()
     {
@@ -49,7 +50,10 @@ public abstract class PanelBase : MonoBehaviour
     public virtual void OnHide()
     {
         if (isHideDirectly)
+        {
             isHiding = true;
+            onHideCallback?.Invoke();
+        }
     }
 
     /// <summary>
@@ -73,6 +77,7 @@ public abstract class PanelBase : MonoBehaviour
     /// </summary>
     protected void ClearSelfCache()
     {
+        onHideCallback?.Invoke();
         UIManager.Instance.ClearPanelCache(this.GetType());
     }
 }

@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f79adec4-0fe1-46a1-92da-deec8622e8af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Other/Core.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Other/Core.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/C#Script/Manager/PoolManager/GameObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/Manager/PoolManager/GameObjectPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/PanelBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/Manager/UIManager/NoEditor/PanelBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +101,7 @@
       <workItem from="1699853932763" duration="830000" />
       <workItem from="1699870890266" duration="197000" />
       <workItem from="1699877515584" duration="8232000" />
+      <workItem from="1700706877669" duration="2469000" />
     </task>
     <servers />
   </component>
