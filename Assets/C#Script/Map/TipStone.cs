@@ -6,7 +6,8 @@ using UnityEngine;
 public class TipStone : MonoBehaviour
 {
     [SerializeField, Multiline(5)] private string tipText;
-    private Vector2 showPos => Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 5));
+    [SerializeField] private Vector3 showHeight = new Vector3(0, 5);
+    private Vector2 showPos => Camera.main.WorldToScreenPoint(transform.position + showHeight);
     private TipsOnScreen tip;
     private bool enterOrNot;
     private void OnTriggerEnter2D(Collider2D other)
