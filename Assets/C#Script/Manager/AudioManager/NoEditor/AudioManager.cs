@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
+    protected override bool IsDonDestroyOnLoad => true;
+
     [SerializeField] private BgmContainer bgmContainer;
     [SerializeField] private SoundEffectContainer soundEffectContainer;
 

@@ -59,13 +59,16 @@ public class DieAndRevive : Singleton<DieAndRevive>
             case DeathType.Spike:
                 Instantiate(bloodParticle, transform.position, Quaternion.identity);
                 CameraActions.Instance.CameraShake(0.1f, 0.15f);
+                AudioManager.Instance.PlaySe("SpikeKill");
                 break;
             case DeathType.Burn:
                 Instantiate(lazerParticle, transform.position, Quaternion.identity);
+                AudioManager.Instance.PlaySe("LazerKill");
                 break;
             case DeathType.Fall:
                 Instantiate(bloodParticle, transform.position, Quaternion.identity);
                 CameraActions.Instance.CameraShake(0.2f, 0.25f);
+                AudioManager.Instance.PlaySe("FallKill");
                 break;
             default:
                 break;
@@ -106,6 +109,7 @@ public class DieAndRevive : Singleton<DieAndRevive>
     {
         if(lifeLeft <= 0) //生命值归零，重载场景
             return;
+        AudioManager.Instance.PlaySe("Respawn");
 
         transform.position = RevivePos.transform.position + Vector3.up * 3;
         Instantiate(respawnParticle,RevivePos.transform.position + Vector3.up * 0.5f, Quaternion.identity);

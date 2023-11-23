@@ -12,9 +12,9 @@ public class Player_JumpState : PlayerStates
     {
         base.Enter();
         input.JumpBuffer = false;
-
         anim.Play("Jump");
-        
+        AudioManager.Instance.PlaySe("Jump");
+
         controller.SetVelocityY(jumpVelocity);
     }
 

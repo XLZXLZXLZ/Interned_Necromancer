@@ -26,6 +26,7 @@ public class GearSwitch : Switch
             isOn = true;
             sr.sprite = onSprite;
             switchOn?.Invoke();
+            AudioManager.Instance.PlaySe("SwitchOn");
         }
     }
 

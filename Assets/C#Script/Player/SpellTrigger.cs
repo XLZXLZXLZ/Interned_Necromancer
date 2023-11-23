@@ -8,5 +8,6 @@ public class SpellTrigger : MonoBehaviour
     public void SpellTriggerEvent()
     {
         Instantiate(spell,transform.Find("SpellTrigger").position,Quaternion.identity).GetComponent<Spell>().Shoot();
+        AudioManager.Instance.PlaySe("CastSpell");
     }
 }

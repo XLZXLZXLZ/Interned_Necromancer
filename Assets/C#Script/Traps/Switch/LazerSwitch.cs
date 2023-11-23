@@ -19,6 +19,7 @@ public class LazerSwitch : Switch
         isOn = true;
         switchOn?.Invoke();
         corePos.GetChild(0).gameObject.SetActive(isOn);
+        AudioManager.Instance.PlaySe("LazerSwitchOn");
     }
 
     public void OnDisActive()

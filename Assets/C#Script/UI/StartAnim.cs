@@ -20,6 +20,7 @@ public class StartAnim : MonoBehaviour
     {
         //transform.DOShakePosition(0.1f, 24f,50,90);
         ShakeScene(0.1f);
+        AudioManager.Instance.PlaySe("ShowTitle");
         //播放音效
     }
 

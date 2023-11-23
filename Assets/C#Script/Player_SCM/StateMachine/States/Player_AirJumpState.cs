@@ -12,6 +12,7 @@ public class Player_AirJumpState : PlayerStates
         base.Enter();
         input.JumpBuffer = false;
         anim.Play("AirJump");
+        AudioManager.Instance.PlaySe("Jump");
 
         controller.SetVelocityY(jumpVelocity);
         Instantiate(jumpParticle, player.transform.position + Vector3.down, Quaternion.identity);

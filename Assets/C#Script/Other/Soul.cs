@@ -27,6 +27,8 @@ public class Soul : MonoBehaviour
             Instantiate(particle,transform.position,Quaternion.identity);
             Instantiate(monster,transform.position,Quaternion.identity);
 
+            AudioManager.Instance.PlaySe("SummonMonster");
+
             Destroy(s.gameObject);
             Destroy(gameObject);
         }
