@@ -16,6 +16,11 @@ public class StartAnim : MonoBehaviour
         firstEnter = false;
     }
 
+    public void PlayBGM()
+    {
+        AudioManager.Instance.PlayBgm("GameBGM");
+    }
+
     public void ShowTitle()
     {
         //transform.DOShakePosition(0.1f, 24f,50,90);

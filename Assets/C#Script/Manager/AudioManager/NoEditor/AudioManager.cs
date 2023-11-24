@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class AudioManager : Singleton<AudioManager>
 {
@@ -42,6 +43,17 @@ public class AudioManager : Singleton<AudioManager>
     {
         if (!bgms.ContainsKey(bgmName)) return;
         bgmComponent.clip = bgms[bgmName];
+        StartCoroutine(BGMFadeIn(bgmComponent.volume, 2.5f));
+    }
+
+    private IEnumerator BGMFadeIn(float target,float duration)
+    {
+        bgmComponent.volume = 0f;
+        while(bgmComponent.volume < target)
+        {
+            bgmComponent.volume = Mathf.MoveTowards(bgmComponent.volume, target, 1f * Time.deltaTime / duration);
+            yield return null;
+        }
         bgmComponent.Play();
     }
 
