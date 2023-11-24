@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class TitleSceneManager : MonoBehaviour
 {
+    private void Start()
+    {
+        AudioManager.Instance.SetVolume(0.5f, 0.5f);
+    }
+
     public void StartGame()
     {
         FadeUI.Instance.Fade("ChooseScene");

@@ -34,6 +34,8 @@ public class AudioManager : Singleton<AudioManager>
         bgmComponent = audioRoot.AddComponent<AudioSource>();
         bgmComponent.loop = true;
         seComponent = audioRoot.AddComponent<AudioSource>();
+
+        SetVolume(0.5f, 0.5f);
     }
 
     public void PlayBgm(string bgmName)
@@ -50,7 +52,11 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlaySe(string seName)
     {
-        if (!soundEffects.ContainsKey(seName)) return;
+        if (!soundEffects.ContainsKey(seName))
+        {
+            Debug.LogWarning("音频文件:" + seName + " 暂未导入");
+            return;
+        }
         seComponent.PlayOneShot(soundEffects[seName]);
     }
 
