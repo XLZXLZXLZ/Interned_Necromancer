@@ -22,7 +22,7 @@ public class ScheduleManager : Singleton<ScheduleManager>
             InvokeSchedule();
     }
 
-    private void AddSchedule(Schedule schedule)
+    public void AddSchedule(Schedule schedule)
     {
         if (schedule == null) return;
         schedules.Add(schedule);
@@ -30,7 +30,7 @@ public class ScheduleManager : Singleton<ScheduleManager>
         schedule.InvokeStartCallback();
     }
 
-    private void RemoveSchedule(Schedule schedule)
+    public void RemoveSchedule(Schedule schedule)
     {
         if (!schedules.Contains(schedule)) return;
         schedules.Remove(schedule);
