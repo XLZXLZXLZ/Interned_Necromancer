@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f79adec4-0fe1-46a1-92da-deec8622e8af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/C#Script/Base/Consts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/C#Script/Base/Consts.cs" afterDir="false" />
-    </list>
+    <list default="true" id="f79adec4-0fe1-46a1-92da-deec8622e8af" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,9 +14,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/C#Script/Manager/ScheduleManager/ScheduleManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/C#Script/Z.Test/TipPanelTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.2/Editor/BurstAotCompiler.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -50,6 +47,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="F:/TestGame/Interned_Necromancer\Interned-Necromancer.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="F:\TestGame\Interned_Necromancer" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.16f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath G:\GitHub\Interned_Necromancer -debugCodeOptimization" />
@@ -99,6 +104,7 @@
       <workItem from="1699870890266" duration="197000" />
       <workItem from="1699877515584" duration="8232000" />
       <workItem from="1700706877669" duration="4791000" />
+      <workItem from="1700825992373" duration="5033000" />
     </task>
     <servers />
   </component>
