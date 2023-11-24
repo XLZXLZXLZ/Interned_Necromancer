@@ -4913,7 +4913,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3208322773885306254}
   - component: {fileID: 5681320993104377090}
-  - component: {fileID: 4485597696177356997}
   m_Layer: 0
   m_Name: Dungeon Tile Set_35
   m_TagString: Untagged
@@ -4988,32 +4987,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4485597696177356997
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4831917772926168443}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.03251122}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1.0588236}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.9938011}
-  m_EdgeRadius: 0
 --- !u!1 &5079963241765526748
 GameObject:
   m_ObjectHideFlags: 0
@@ -5024,7 +4997,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7684826861603652414}
   - component: {fileID: 3872479741143247513}
-  - component: {fileID: 5365977569412614488}
   m_Layer: 0
   m_Name: Dungeon Tile Set_33
   m_TagString: Untagged
@@ -5099,32 +5071,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5365977569412614488
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079963241765526748}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.032511696}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1.0588236}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.99380016}
-  m_EdgeRadius: 0
 --- !u!1 &5910136078573887342
 GameObject:
   m_ObjectHideFlags: 0

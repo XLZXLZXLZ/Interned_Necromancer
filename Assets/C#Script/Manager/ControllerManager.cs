@@ -27,6 +27,11 @@ public class ControllerManager : Singleton<ControllerManager>
             {
                 currentControl.OnControl();
                 currentControl.controllable = true;
+                BackTip.Instance.Show();
+            }
+            else
+            {
+                BackTip.Instance.Hide();
             }
         }
     }
