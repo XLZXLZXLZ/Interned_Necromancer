@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 507709065543708264}
   - component: {fileID: 8341362895572581759}
   - component: {fileID: 5526254599103068806}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: LazerSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
