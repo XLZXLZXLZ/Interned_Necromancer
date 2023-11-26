@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -11,11 +12,13 @@ public class FadeUI : Singleton<FadeUI>
 
     bool isPlaying;
     Animator anim;
+    GapTip tip;
 
     protected override void Awake()
     {
         base.Awake();
         anim = GetComponent<Animator>();
+        tip = GetComponentInChildren<GapTip>();
     }
 
     private IEnumerator LoadEnumerator(UnityAction action)
@@ -31,7 +34,7 @@ public class FadeUI : Singleton<FadeUI>
             yield return null;
         }
         action?.Invoke();
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.6f);
         anim.Play("FadeOut");
         isPlaying = false;
     }
@@ -44,5 +47,15 @@ public class FadeUI : Singleton<FadeUI>
     public void Fade(string targetScene)
     {
         StartCoroutine(LoadEnumerator(()=>SceneManager.LoadScene(targetScene)));
+    }
+
+    public void ShowTip()
+    {
+        tip.ShowTip();
+    }
+
+    public void FadeTip() 
+    {
+        tip.FadeTip();
     }
 }

@@ -14670,5 +14670,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllable: 0
+  destroyParticle: {fileID: 152058943215804701, guid: a30a27743e651874592b357282c06990, type: 3}
   boundaryRadius: 2
   speed: 2

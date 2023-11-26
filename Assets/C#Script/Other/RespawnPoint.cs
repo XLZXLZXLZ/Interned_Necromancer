@@ -44,7 +44,10 @@ public class RespawnPoint : MonoBehaviour
     public void SetRespawnPoint()
     {
         Instantiate(enterParticle, transform.position, Quaternion.identity);
-        AudioManager.Instance.PlaySe("EnterSpawnPoint");
+
+        if(!defaultPoint)
+            AudioManager.Instance.PlaySe("EnterSpawnPoint");
+
         foreach (var particle in respawnPointParticle) 
         {
             var m = particle.emission;

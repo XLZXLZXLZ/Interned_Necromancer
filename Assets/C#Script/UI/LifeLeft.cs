@@ -16,7 +16,7 @@ public class LifeLeft : Singleton<LifeLeft>
     private void Start()
     {
         TMP.text = "x " + DieAndRevive.Instance.lifeLeft;
-        EventManager.Instance.OnPlayerDie += (revive) =>
+        EventManager.Instance.OnLifeChange += (revive) =>
         {
             TMP.color = revive.lifeLeft <= 0 ? Color.red : Color.white;
             TMP.text = "x " + revive.lifeLeft;

@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllable: 0
+  destroyParticle: {fileID: 389305199776426702, guid: c4b9fdb024660d1439758c1ef6a5e437, type: 3}
   speed: 3
 --- !u!1 &7561323457576809002
 GameObject:

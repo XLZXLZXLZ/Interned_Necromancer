@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public partial class EventManager:Singleton<EventManager>
 {
-    public UnityAction<DieAndRevive> OnPlayerDie;
+    public UnityAction<DieAndRevive> OnLifeChange;
 }
 
 public enum DeathType
@@ -47,6 +47,15 @@ public class DieAndRevive : Singleton<DieAndRevive>
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            lifeLeft++;
+            EventManager.Instance.OnLifeChange?.Invoke(this);
+        }
+    }
+
     //触发死亡扳机(即将进入死亡时)
     public void DeathTrigger(DeathType type)
     {
@@ -75,7 +84,7 @@ public class DieAndRevive : Singleton<DieAndRevive>
         }
 
         lifeLeft--;
-        EventManager.Instance.OnPlayerDie?.Invoke(this);
+        EventManager.Instance.OnLifeChange?.Invoke(this);
     }
     //死亡事件
     public void OnDeath()

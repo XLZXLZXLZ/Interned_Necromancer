@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 2210608367308243474}
   - component: {fileID: 2210608367308243475}
   - component: {fileID: 2210608367308243472}
-  - component: {fileID: 2210608367308243473}
-  - component: {fileID: 2210608367308243470}
+  - component: {fileID: 2716169234120981698}
   m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
@@ -49,7 +48,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -96,10 +95,10 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: c5ab7bd49de332c448a0fb9e9af8f02a, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 1386501652, guid: 4915a16e7f065d44c97ba4e8811cd7bc, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1386501652, guid: 4915a16e7f065d44c97ba4e8811cd7bc, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1987081909, guid: 4915a16e7f065d44c97ba4e8811cd7bc, type: 3}
   - m_RefCount: 2
@@ -238,8 +237,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &2210608367308243473
-CompositeCollider2D:
+--- !u!60 &2716169234120981698
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -252,30 +251,22 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
---- !u!19719996 &2210608367308243470
-TilemapCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2210608367308243468}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.05113578, y: 1.0000173}
+      - {x: -1.3396195, y: 1.0157623}
+      - {x: -2.010788, y: 0.006953001}
+      - {x: 2.0278335, y: 0.0069532394}
+      - {x: 1.4248459, y: 0.9987174}
 --- !u!1 &2210608369320250285
 GameObject:
   m_ObjectHideFlags: 0

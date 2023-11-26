@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllable: 0
+  destroyParticle: {fileID: 482041548620508985, guid: 720357d655981a44eaf552f93f16d2d5, type: 3}
   speed: 4
   upBoxCastSize: {x: 1.1, y: 0.1}
   upBoxCastDistance: 0.6
