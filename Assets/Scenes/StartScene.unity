@@ -2569,6 +2569,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 795419302, guid: a8a41b3ba20d47f4eb275790ad36787d, type: 3}
+      propertyPath: tips.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 795419302, guid: a8a41b3ba20d47f4eb275790ad36787d, type: 3}
+      propertyPath: tips.Array.data[9]
+      value: "\u662F\u7684\uFF0C\u5982\u679C\u4F60\u60F3\uFF0C\u50F5\u5C38\u4E5F\u80FD\u4E3A\u4F60\u963B\u6321\u6FC0\u5149"
+      objectReference: {fileID: 0}
     - target: {fileID: 3546979410857007207, guid: a8a41b3ba20d47f4eb275790ad36787d, type: 3}
       propertyPath: m_Name
       value: InsertUI
