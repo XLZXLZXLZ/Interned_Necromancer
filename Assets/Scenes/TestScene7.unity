@@ -526,7 +526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3260973202618183210, guid: 79d65b1820bd3cd429cbcf5820e98ea0, type: 3}
       propertyPath: lifeLeft
-      value: 20
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3260973202618183210, guid: 79d65b1820bd3cd429cbcf5820e98ea0, type: 3}
       propertyPath: respawnParticle
