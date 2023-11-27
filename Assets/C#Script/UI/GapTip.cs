@@ -54,7 +54,7 @@ public class GapTip : MonoBehaviour
     void Update()
     {
         (float r, float g, float b,float a) = (tip.color.r,tip.color.g,tip.color.b,tip.color.a);
-        tip.color = new Color(r, g, b, Mathf.MoveTowards(a,alpha,Time.deltaTime));
+        tip.color = new Color(r, g, b, Mathf.MoveTowards(a,alpha,2 * Time.deltaTime));
 
         //tip.alpha = Mathf.MoveTowards(tip.alpha, alpha,Time.deltaTime);
     }
