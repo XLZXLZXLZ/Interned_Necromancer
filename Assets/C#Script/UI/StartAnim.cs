@@ -29,6 +29,11 @@ public class StartAnim : MonoBehaviour
         //播放音效
     }
 
+    public void ShowStamp()
+    {
+        AudioManager.Instance.PlaySe("Stamp");
+    }
+
     public void ShakeScene(float time)
     {
         StartCoroutine(ShakeCoroutine(time));

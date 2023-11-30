@@ -25,7 +25,7 @@ public class GapTip : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "StartScene")
         {
-            tip.text = "Tips: 玩得开心!";
+            tip.text = "Tips: 使用Tab切换全屏哦!";
         }
         else
             tip.text = "Tips:" + GetTip();
