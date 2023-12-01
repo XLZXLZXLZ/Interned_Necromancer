@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f79adec4-0fe1-46a1-92da-deec8622e8af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Interned_Necromancer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/NotoSansMonoCJKsc-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/NotoSansMonoCJKsc-Bold SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../FantasyRuin/Assets/Scripts/CoreScripts/DebugHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/C#Script/Manager/ScheduleManager/ScheduleManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/C#Script/Z.Test/TipPanelTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.2/Editor/BurstAotCompiler.cs" root0="SKIP_HIGHLIGHTING" />
@@ -50,7 +52,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="F:/TestGame/Interned_Necromancer\Interned-Necromancer.exe" />
+      <option name="EXE_PATH" value="F:/GameMake_TestGames/Interned_Necromancer\Interned-Necromancer.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="F:\TestGame\Interned_Necromancer" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -108,6 +110,7 @@
       <workItem from="1700706877669" duration="4791000" />
       <workItem from="1700825992373" duration="5033000" />
       <workItem from="1700838641280" duration="600000" />
+      <workItem from="1701333823923" duration="1721000" />
     </task>
     <servers />
   </component>
